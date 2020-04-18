@@ -45,8 +45,10 @@ public class DevScreen implements Screen {
    }
 
    @Override
-   public void render(float delta) {
+   public void render(float deltaTime) {
       frameCounter.update();
+
+      player.update(deltaTime);
 
       spriteBatch.begin();
       font.draw(spriteBatch, frameCounter.getFrameRate() + " FPS", 5, Gdx.graphics.getHeight() - 5);
