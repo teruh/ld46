@@ -5,7 +5,6 @@ import com.badlogic.gdx.graphics.GL20;
 import me.zacl.ld46.screen.DevScreen;
 
 public class Game extends com.badlogic.gdx.Game {
-
    @Override
    public void create () {
       setScreen(new DevScreen());
