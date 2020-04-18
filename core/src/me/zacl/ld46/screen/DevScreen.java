@@ -6,7 +6,9 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
+import me.zacl.ld46.entity.Player;
 import me.zacl.ld46.util.Constants;
 import me.zacl.ld46.util.FrameCounter;
 import me.zacl.ld46.world.TiledWorld;
@@ -21,6 +23,8 @@ public class DevScreen implements Screen {
 
    private FrameCounter frameCounter;
    private BitmapFont   font;
+
+   private Player player;
 
    @Override
    public void show() {
@@ -37,6 +41,8 @@ public class DevScreen implements Screen {
       frameCounter = new FrameCounter();
       font = new BitmapFont();
       font.setColor(Color.WHITE);
+
+      player = new Player(0, 0);
    }
 
    @Override
@@ -44,10 +50,12 @@ public class DevScreen implements Screen {
       frameCounter.update();
 
       spriteBatch.begin();
-      font.draw(spriteBatch, frameCounter.getFrameRate() + " FPS", 5, Gdx.graphics.getHeight() - 2);
+      font.draw(spriteBatch, frameCounter.getFrameRate() + " FPS", 5, Gdx.graphics.getHeight() - 5);
       spriteBatch.end();
 
       world.render(camera);
+
+      player.render(spriteBatch);
    }
 
    @Override

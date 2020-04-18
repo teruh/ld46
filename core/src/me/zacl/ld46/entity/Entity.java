@@ -1,5 +1,6 @@
 package me.zacl.ld46.entity;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 
@@ -12,6 +13,8 @@ import com.badlogic.gdx.math.Vector2;
 public abstract class Entity {
    private Vector2 position; // X, Y position of the entity in the world
 
+   private Texture texture;
+
    /**
     * Set default class values
     * @param x x-position of the entity in the world
@@ -21,6 +24,31 @@ public abstract class Entity {
       this.position = new Vector2();
       position.x = x;
       position.y = y;
+   }
+
+   /**
+    * Set default class values
+    * @param x x-position of the entity in the world
+    * @param y y-position of the entity in the world
+    */
+   public Entity(float x, float y, String texturePath) {
+      this.position = new Vector2();
+      position.x = x;
+      position.y = y;
+      texture = new Texture(texturePath);
+   }
+
+
+   /**
+    * Set default class values
+    * @param x x-position of the entity in the world
+    * @param y y-position of the entity in the world
+    */
+   public Entity(float x, float y, Texture texture) {
+      this.position = new Vector2();
+      position.x = x;
+      position.y = y;
+      this.texture = texture;
    }
 
    /**
@@ -93,5 +121,9 @@ public abstract class Entity {
     */
    public void addToPositionVector(float x, float y) {
       position.add(x, y);
+   }
+
+   public Texture getTexture() {
+      return texture;
    }
 }
