@@ -12,7 +12,7 @@ public class Game extends com.badlogic.gdx.Game {
 
    @Override
    public void render () {
-      Gdx.gl.glClearColor(1, 0, 0, 1);
+      Gdx.gl.glClearColor(0.5f, 0.1f, 1.f, 1.f);
       Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
       super.render();
    }

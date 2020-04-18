@@ -16,15 +16,17 @@ public class TiledWorld {
       mapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
    }
 
-   public void render(OrthographicCamera camera, SpriteBatch batch) {
+   public TiledWorld(String mapPath, float unitScale) {
+      tiledMap = new TmxMapLoader().load(mapPath);
+      mapRenderer = new OrthogonalTiledMapRenderer(tiledMap, unitScale);
+   }
+
+   public void render(OrthographicCamera camera) {
       mapRenderer.setView(camera);
       mapRenderer.render();
-
-      batch.setProjectionMatrix(camera.combined);
    }
 
    public void dispose() {
       tiledMap.dispose();
    }
-
 }
