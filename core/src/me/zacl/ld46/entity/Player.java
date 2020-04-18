@@ -10,7 +10,7 @@ public class Player extends Entity {
     * @param y y-position of the entity in the world
     */
    public Player(float x, float y) {
-      super(x, y, "badlogic.jpg");
+      super(x, y);
 
    }
 
@@ -22,7 +22,7 @@ public class Player extends Entity {
    @Override
    public void render(SpriteBatch batch) {
       batch.begin();
-      batch.draw(getTexture(), getPositionX(), getPositionY(), 50, 50);
+      batch.draw(getTexture(), getX(), getY(), getWidth(), getHeight());
       batch.end();
    }
 }
