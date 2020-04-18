@@ -1,16 +1,24 @@
 package me.zacl.ld46.screen;
 
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import me.zacl.ld46.world.TiledWorld;
 
 public class DevScreen implements Screen {
-   SpriteBatch batch;
-   Texture img;
+
+   private TiledWorld world;
+   private OrthographicCamera camera;
+   private SpriteBatch spriteBatch;
 
    public DevScreen() {
-      batch = new SpriteBatch();
-      img = new Texture("badlogic.jpg");
+      spriteBatch = new SpriteBatch();
+
+      camera = new OrthographicCamera();
+      camera.setToOrtho(false, 250, 250);
+      camera.update();
+
+      world = new TiledWorld("dev_map.tmx");
    }
 
    @Override
@@ -20,9 +28,7 @@ public class DevScreen implements Screen {
 
    @Override
    public void render(float delta) {
-      batch.begin();
-      batch.draw(img, 0, 0);
-      batch.end();
+      world.render(camera, spriteBatch);
    }
 
    @Override
@@ -47,7 +53,5 @@ public class DevScreen implements Screen {
 
    @Override
    public void dispose() {
-      batch.dispose();
-      img.dispose();
    }
 }
