@@ -50,13 +50,12 @@ public class DevScreen implements Screen {
 
       player.update(deltaTime);
 
-      spriteBatch.begin();
-      font.draw(spriteBatch, frameCounter.getFrameRate() + " FPS", 5, Gdx.graphics.getHeight() - 5);
-      spriteBatch.end();
-
       world.render(camera);
 
+      spriteBatch.begin();
       player.render(spriteBatch);
+      font.draw(spriteBatch, frameCounter.getFrameRate() + " FPS", 5, Gdx.graphics.getHeight() - 5);
+      spriteBatch.end();
    }
 
    @Override

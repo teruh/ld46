@@ -5,7 +5,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class Player extends Entity {
+public class Player extends MovingEntity {
    /**
     * Set default class values
     *
@@ -49,9 +49,7 @@ public class Player extends Entity {
    }
 
    @Override
-   public void render(SpriteBatch batch) {
-      batch.begin();
-      batch.draw(getTexture(), getX(), getY(), getWidth(), getHeight());
-      batch.end();
+   public void render(SpriteBatch spriteBatch) {
+      spriteBatch.draw(getTexture(), getX(), getY(), getWidth(), getHeight());
    }
 }

@@ -2,7 +2,7 @@ package me.zacl.ld46.util;
 
 public class Constants {
 
-   public Constants() {
+   private Constants() {
    }
 
    // Tiles are 32x32px
