@@ -3,27 +3,27 @@ package me.zacl.ld46.screen;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import me.zacl.ld46.world.TiledWorld;
 
 public class DevScreen implements Screen {
+
+   private ExtendViewport viewport;
 
    private TiledWorld world;
    private OrthographicCamera camera;
    private SpriteBatch spriteBatch;
 
-   public DevScreen() {
+   @Override
+   public void show() {
       spriteBatch = new SpriteBatch();
 
       camera = new OrthographicCamera();
-      camera.setToOrtho(false, 250, 250);
-      camera.update();
 
       world = new TiledWorld("dev_map.tmx");
-   }
 
-   @Override
-   public void show() {
-
+      viewport = new ExtendViewport(480, 480, camera);
+      viewport.apply();
    }
 
    @Override
@@ -33,7 +33,7 @@ public class DevScreen implements Screen {
 
    @Override
    public void resize(int width, int height) {
-
+      viewport.update(width, height);
    }
 
    @Override
