@@ -2,10 +2,10 @@ package me.zacl.ld46.entity;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
-public class Player extends MovingEntity {
+public class Player extends LivingEntity {
    /**
     * Set default class values
     *
@@ -14,7 +14,9 @@ public class Player extends MovingEntity {
     */
    public Player(float x, float y) {
       super(x, y);
-      setTexture(new Texture("badlogic.jpg"));
+
+      setRegion(new TextureRegion(getSpriteSheet(), 0, 0, 32, 32));
+
       setSize(1, 1);
       setMoveSpeed(2);
    }
@@ -50,6 +52,6 @@ public class Player extends MovingEntity {
 
    @Override
    public void render(SpriteBatch spriteBatch) {
-      spriteBatch.draw(getTexture(), getX(), getY(), getWidth(), getHeight());
+      spriteBatch.draw(this, getX(), getY(), getWidth(), getHeight());
    }
 }

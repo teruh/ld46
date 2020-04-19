@@ -1,8 +1,13 @@
 package me.zacl.ld46.entity;
 
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
-public abstract class MovingEntity extends Entity {
+/**
+ * Entity that has collides with collidable entities
+ */
+public abstract class AABBEntity extends Entity {
+   private Rectangle rectangle;
 
    protected Vector2 deltaMovement;
    private   int     moveSpeed;
@@ -13,9 +18,10 @@ public abstract class MovingEntity extends Entity {
     * @param x x-position of the entity in the world
     * @param y y-position of the entity in the world
     */
-   public MovingEntity(float x, float y) {
+   public AABBEntity(float x, float y) {
       super(x, y);
       deltaMovement = new Vector2(0, 0);
+      rectangle = new Rectangle(x, y, getScaleX(), getScaleY());
    }
 
    public int getMoveSpeed() {

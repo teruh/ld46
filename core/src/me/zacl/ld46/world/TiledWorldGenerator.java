@@ -36,6 +36,7 @@ public class TiledWorldGenerator {
       for (int row = 0; row < worldHeight; row++) {
          for (int col = 0; col < worldWidth; col++) {
             TiledMapTileLayer.Cell cell = new TiledMapTileLayer.Cell();
+            // Walls are generated surrounding the map
             if (row == 0 || col == 0 || row == worldHeight - 1 || col == worldWidth - 1) {
                cell.setTile(new StaticTiledMapTile(splitTiles[0][1]));
             } else {
@@ -67,10 +68,10 @@ public class TiledWorldGenerator {
    }
 
    public int getWidth() {
-      return tileWidth * worldWidth;
+      return getTileWidth() * getWorldWidth();
    }
 
    public int getHeight() {
-      return tileHeight * worldHeight;
+      return getTileHeight() * getWorldHeight();
    }
 }
