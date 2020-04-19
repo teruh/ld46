@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
  * A living entity is an entity that moves (changes directions/facing)
  */
 public class LivingEntity extends AABBEntity {
+
    private Texture spriteSheet;
 
    /**

@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class Player extends LivingEntity {
+
    /**
     * Set default class values
     *
@@ -29,21 +30,25 @@ public class Player extends LivingEntity {
       // Move up
       if (Gdx.input.isKeyPressed(Input.Keys.W) || Gdx.input.isKeyPressed(Input.Keys.UP)) {
          this.deltaMovement.y = getMoveSpeed() * deltaTime;
+         setRegion(new TextureRegion(getSpriteSheet(), 128, 0, 32, 32));
       }
 
       // Move down
       if (Gdx.input.isKeyPressed(Input.Keys.S) || Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
          this.deltaMovement.y = -getMoveSpeed() * deltaTime;
+         setRegion(new TextureRegion(getSpriteSheet(), 0, 0, 32, 32));
       }
 
       // Move right
       if (Gdx.input.isKeyPressed(Input.Keys.D) || Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
          this.deltaMovement.x = getMoveSpeed() * deltaTime;
+         setRegion(new TextureRegion(getSpriteSheet(), 64, 0, 32, 32));
       }
 
       // Move left
       if (Gdx.input.isKeyPressed(Input.Keys.A) || Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
          this.deltaMovement.x = -getMoveSpeed() * deltaTime;
+         setRegion(new TextureRegion(getSpriteSheet(), 192, 0, 32, 32));
       }
 
       setX(getX() + deltaMovement.x);
