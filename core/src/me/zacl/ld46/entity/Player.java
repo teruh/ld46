@@ -15,8 +15,8 @@ public class Player extends MovingEntity {
    public Player(float x, float y) {
       super(x, y);
       setTexture(new Texture("badlogic.jpg"));
-      setSize(32, 32);
-      setMoveSpeed(150);
+      setSize(1, 1);
+      setMoveSpeed(2);
    }
 
    @Override
